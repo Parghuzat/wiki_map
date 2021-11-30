@@ -23,7 +23,7 @@ const map = function(db) {
 }
 
 const maps = function(db) {
-  router.get("/maps/:id", (req, res) => {
+  router.get("/maps", (req, res) => {
     db.query(`SELECT * FROM maps`)
       .then(data => {
         const maps = data.rows;
