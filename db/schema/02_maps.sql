@@ -5,4 +5,5 @@ CREATE TABLE maps (
   center_lat INTEGER NOT NULL,
   center_lng INTEGER NOT NULL,
   zoom INTEGER NOT NULL,
-  user_id INTEGER REFERENCES users(id) ON DELETE CASCADE);
+  user_id INTEGER REFERENCES users(id) ON DELETE CASCADE
+);

@@ -6,5 +6,5 @@ CREATE TABLE markers (
   lng INTEGER NOT NULL,
   description TEXT,
   image_url VARCHAR(255),
-  user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
+  -- user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
   map_id INTEGER REFERENCES maps(id) ON DELETE CASCADE);
