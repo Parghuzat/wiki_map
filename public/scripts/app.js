@@ -6,3 +6,7 @@
       zoom: 8,
     });
   }
+
+
+  // eventLIstener to get lat and long from googe api upon click
+  // then add to form

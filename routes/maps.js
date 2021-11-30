@@ -1,0 +1,44 @@
+// handling the route of form submission
+// Router.post('/maps/:id', (req, res) => {
+//   const coords = req.body.position
+// })
+
+const express = require('express');
+const router  = express.Router();
+
+const map = function(db) {
+  router.get("/map/:id", (req, res) => {
+    db.query(`SELECT * FROM maps JOIN markers ON maps.id = markers.map_id WHERE id = $1`,[req.params.id])
+      .then(data => {
+        const markers = data.rows;
+        res.json({ markers });
+      })
+      .catch(err => {
+        res
+          .status(500)
+          .json({ error: err.message });
+      });
+  });
+  return router;
+}
+
+const maps = function(db) {
+  router.get("/maps/:id", (req, res) => {
+    db.query(`SELECT * FROM maps`)
+      .then(data => {
+        const maps = data.rows;
+        res.json({ maps });
+      })
+      .catch(err => {
+        res
+          .status(500)
+          .json({ error: err.message });
+      });
+  });
+  return router;
+}
+
+module.exports = {
+  map,
+  maps,
+};
