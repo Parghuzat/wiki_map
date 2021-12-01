@@ -1,0 +1,83 @@
+/* styling that controls the container part which includes map, usermaps list and add map*/
+.container{
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+  margin-top: 2%;
+}
+
+.con_list{
+  height: 400px;
+  width: 25%;
+  overflow: auto;
+}
+.title_list,
+.title_list:hover,
+.title_list:focus {
+  visibility: visible;
+}
+
+.con_map{
+  width: 100%;
+  height: 100%;
+  position: relative;
+  margin-left: 2%;
+
+}
+
+.con_Addmap{
+  height: 400px;
+  margin-left: 2%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+#map {
+  height: 400px;
+  /* The height is 400 pixels */
+  width: 100%;
+  /* The width is the width of the web page */
+}
+
+#map_title{
+  height: 20px;
+  width: 200px;
+  margin-bottom: 1.3%;
+}
+
+#map_lattitude{
+  height: 20px;
+  width: 200px;
+  margin-bottom: 1.3%;
+}
+
+#map_longitude{
+  height: 20px;
+  width: 200px;
+  margin-bottom: 1.3%;
+}
+
+#map_url{
+  height: 20px;
+  width: 200px;
+  margin-bottom: 1.3%;
+}
+
+#map_description{
+  height: 150px;
+  width: 200px;
+  margin-bottom: 1.3%;
+}
+
+#map_button{
+  height: 35px;
+  width: 200px;
+  margin-bottom: 1.3%;
+}
+
+#create{
+  text-align: center;
+  height: 20px;
+  width: 60px;
+}
