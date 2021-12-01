@@ -1,0 +1,75 @@
+/* styling that controls the container part which includes map, usermaps list and add marker*/
+.container{
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+  margin-top: 2%;
+}
+
+.con_list{
+  height: 400px;
+  width: 25%;
+  overflow: auto;
+}
+.title_list,
+.title_list:hover,
+.title_list:focus {
+  visibility: visible;
+}
+
+.con_map{
+  width: 100%;
+  height: 100%;
+  position: relative;
+  margin-left: 2%;
+
+}
+
+.con_marker{
+  height: 400px;
+  margin-left: 2%;
+
+}
+
+#map {
+  height: 400px;
+  /* The height is 400 pixels */
+  width: 100%;
+  /* The width is the width of the web page */
+}
+
+#marker_title{
+  height: 20px;
+  width: 200px;
+  margin-bottom: 1.3%;
+}
+
+#marker_lattitude{
+  height: 20px;
+  width: 200px;
+  margin-bottom: 1.3%;
+}
+
+#marker_longitude{
+  height: 20px;
+  width: 200px;
+  margin-bottom: 1.3%;
+}
+
+#marker_url{
+  height: 20px;
+  width: 200px;
+  margin-bottom: 1.3%;
+}
+
+#marker_description{
+  height: 150px;
+  width: 200px;
+  margin-bottom: 1.3%;
+}
+
+#marker_button{
+  text-align: center;
+  height: 20px;
+  width: 50px;
+}

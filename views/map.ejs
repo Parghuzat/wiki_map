@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<!-- head -->
+
+  <head>
+    <title> MApp</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <link rel="stylesheet" type="text/css" href="/styles/map_styles.css" />
+    <link rel="stylesheet" type="text/css" href="/styles/map_container.css" />
+    <script src="/scripts/map.js"></script>
+    <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyALTeWTvvDs3k_NqRCYuS6U33HxBD4IIuM&callback=initMap&v=weekly"
+    async
+  ></script>
+  </head>
+
+    <body>
+    <div class="body">
+
+<!--Header start -->
+      <div class="header" >
+      <header id = "main-header">
+          <h1> MApp</h1>
+      </header>
+      </div>
+
+<!-- Header end-->
+
+<!-- search bar start -->
+
+    <div class="search">
+      <form id = "search" action="" method="post">
+        <input id= "search_inp" type = "text" placeholder= " Search for location " >
+        <button id="GoBtn">Go</button>
+      </form>
+    </div>
+
+<!-- search bar end-->
+
+    <div class="container">
+
+    <!-- Add List-->
+    <div class = "con_list">
+      <h1 id="usermaps">User Maps</h1>
+      <ul class="title_list">
+        <li> title1 </li>
+        <li> title2 </li>
+        <li> title3 </li>
+        <li> title1 </li>
+        <li> title2 </li>
+        <li> title3 </li>        <li> title1 </li>
+        <li> title2 </li>
+        <li> title3 </li>        <li> title1 </li>
+        <li> title2 </li>
+        <li> title3 </li>
+        <li> title1 </li>
+        <li> title2 </li>
+        <li> title3 </li>
+        <li> title1 </li>
+        <li> title2 </li>
+        <li> title3 </li>        <li> title1 </li>
+        <li> title2 </li>
+        <li> title3 </li>        <li> title1 </li>
+        <li> title2 </li>
+        <li> title3 </li>        <li> title1 </li>
+        <li> title2 </li>
+        <li> title3 </li>
+        <li> title1 </li>
+        <li> title2 </li>
+        <li> title3 </li>        <li> title1 </li>
+        <li> title2 </li>
+        <li> title3 </li>        <li> title1 </li>
+        <li> title2 </li>
+        <li> title3 </li>        <li> title1 </li>
+        <li> title2 </li>
+        <li> title3 </li>
+        <li> title1 </li>
+        <li> title2 </li>
+        <li> title3 </li>        <li> title1 </li>
+        <li> title2 </li>
+        <li> title3 </li>        <li> title1 </li>
+        <li> title2 </li>
+        <li> title3 </li>
+      </ul>
+    </div>
+
+    <!--viewe map-->
+
+    <div class = "con_map">
+      <div id="map">
+      <h1> MApp<h1>
+      </div>
+    </div>
+
+    <!--Add Marker start-->
+      <div class="con_marker">
+        <div >
+          <h1>Add Marker</h1>
+          <form action="db" method="post" id="addmarker">
+            <input type="text" id="marker_title" placeholder="Title">
+            <div class="coordinates">
+            <input type="text" id="marker_lattitude" placeholder="lattitude" >
+            <input type="text" id="marker_longitude" placeholder ="longitude">
+            <div class="url">
+            <input type="text" id="marker_url" placeholder ="url">
+            <div class="Description">
+            <input type="text" id="marker_description" placeholder="Description">
+            <div class="button">
+            <input type="submit" value="Add" id = "marker_button">
+            </div>
+          </div>
+          </div>
+          </div>
+          </div>
+        </form>
+      </div>
+
+    <!-- Add Marker end-->
+
+      </div>
+    </body>
+  </div>
+</html>
