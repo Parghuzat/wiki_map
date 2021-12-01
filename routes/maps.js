@@ -10,8 +10,9 @@ const map = function(db) {
   router.get("/map/:id", (req, res) => {
     db.query(`SELECT * FROM maps JOIN markers ON maps.id = markers.map_id WHERE id = $1`,[req.params.id])
       .then(data => {
-        const markers = data.rows;
-        res.json({ markers });
+        const templateVars = data.rows;
+        res.render('index', templateVars);
+        console.log('templateVars', templateVars);
       })
       .catch(err => {
         res
@@ -38,7 +39,9 @@ const maps = function(db) {
   return router;
 }
 
+
 module.exports = {
   map,
   maps,
+  testRoute
 };

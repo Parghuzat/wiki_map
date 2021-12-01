@@ -11,7 +11,8 @@
     <script
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyALTeWTvvDs3k_NqRCYuS6U33HxBD4IIuM&callback=initMap&v=weekly"
     async
-  ></script>
+    ></script>
+    <script src="/scripts/app.js"></script>
   </head>
 
     <body>
@@ -99,8 +100,8 @@
           <form action="db" method="post" id="addmarker">
             <input type="text" id="marker_title" placeholder="Title">
             <div class="coordinates">
-            <input type="text" id="marker_lattitude" placeholder="lattitude" >
-            <input type="text" id="marker_longitude" placeholder ="longitude">
+            <input type="text" id="marker_lattitude" placeholder="lattitude" value ="<%= %>">
+            <input type="text" id="marker_longitude" placeholder ="longitude" value ="<%= %>">
             <div class="url">
             <input type="text" id="marker_url" placeholder ="url">
             <div class="Description">

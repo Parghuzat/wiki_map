@@ -10,10 +10,14 @@ const router  = express.Router();
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
-    db.query(`SELECT * FROM users;`)
+    db.query(`SELECT * FROM maps;`)
       .then(data => {
-        const users = data.rows;
-        res.json({ users });
+        const templateVars = {};
+        for (const row of data.rows) {
+          templateVars[row.id] = row;
+        }
+        console.log('TemplateVars:', templateVars[2].title);
+        res.render('map', templateVars)
       })
       .catch(err => {
         res

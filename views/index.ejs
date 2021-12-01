@@ -4,7 +4,7 @@
 <head>
   <title>Home Page</title>
 
-  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />s
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
   <link rel="stylesheet" href="/styles/main.css" type="text/css" />
   <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
@@ -23,3 +23,19 @@
 </body>
 
 </html>
+<% for(let id in templateVars) { %>
+  <p><a href='/map/:<%= templateVars[id]%>'><%= templateVars[id].title</a></p>
+<% } %>
+
+
+
+  <tr>
+    <td><%= url %></td>
+    <td><%= urls[url]['longURL'] %></td>
+    <td><a href="/urls/<%= url %>">Edit</a></td>
+    <td>
+      <form method="POST" action="/urls/<%= url %>/delete">
+        <button type="submit" style="border: 1px solid red; background-color: white; color: red; border-radius: 4px">Delete</button>
+      </form>
+    </td>
+  </tr>
