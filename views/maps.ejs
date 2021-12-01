@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<!-- head -->
+
+  <head>
+    <title> MApp</title>
+    <link rel ="stylesheet" type="text/css" href ="style.css">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <link rel="stylesheet" type="text/css" href="/styles/map_styles.css" />
+    <link rel="stylesheet" type="text/css" href="/styles/map_container.css" />
+    <script src="/scripts/map.js"></script>
+    <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyALTeWTvvDs3k_NqRCYuS6U33HxBD4IIuM&callback=initMap&v=weekly"
+    async
+  ></script>
+  </head>
+
+    <body>
+    <div class="body">
+
+<!--Header start -->
+      <div class="header" >
+      <header id = "main-header">
+          <h1> MApp</h1>
+      </header>
+      </div>
+
+<!-- Header end-->
+
+<!-- search bar start -->
+
+    <div class="search">
+      <form id = "search" action="" method="post">
+        <input id= "search_inp" type = "text" placeholder= " Search for location " >
+        <button id="GoBtn">Go</button>
+      </form>
+    </div>
+
+<!-- search bar end-->
+
+    <div class="container">
+
+    <!-- Add List-->
+    <div class = "con_list">
+      <h1 id="usermaps">User Maps</h1>
+      <tbody class="title_list">
+        <tr>
+        <td> <% for(let id in templateVars) { %>
+          <p><a href = '/map/:<%=templateVars[id] %>'> <%= templateVars[id].title</a></p>
+        <% } %>
+      </td>
+      </tr>
+      </tbody>
+    </div>
+
+    <!--viewe map-->
+
+    <div class = "con_map">
+      <div id="map">
+      <h1> MApp<h1>
+      </div>
+    </div>
+
+    <!--Add Map-->
+      <div class="con_Addmap">
+          <div class="creat_map_button">
+            <input type="submit" value="Create Map" id = "map_button">
+            <form action="db" method="post" id="addmap">
+            <input type="text" id="map_title" placeholder="Title">
+            <div class="coordinates">
+            <input type="text" id="map_lattitude" placeholder="lattitude" >
+            <input type="text" id="map_longitude" placeholder ="longitude">
+            <div class="Description">
+            <input type="text" id="map_description" placeholder="Description">
+            <div class="button">
+            <input type="submit" value="Create" id = "create">
+            </div>
+          </div>
+          </div>
+          </div>
+          </div>
+        </form>
+      </div>
+
+    <!-- Add Map-->
+
+      </div>
+    </body>
+  </div>
+</html>
