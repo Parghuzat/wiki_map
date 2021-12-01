@@ -4,6 +4,7 @@
 
   <head>
     <title> MApp</title>
+    <link rel ="stylesheet" type="text/css" href ="style.css">
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
     <link rel="stylesheet" type="text/css" href="/styles/map_styles.css" />
     <link rel="stylesheet" type="text/css" href="/styles/map_container.css" />
@@ -60,21 +61,19 @@
       </div>
     </div>
 
-    <!--Add Marker start-->
-      <div class="con_marker">
-        <div >
-          <h1>Add Marker</h1>
-          <form action="db" method="post" id="addmarker">
-            <input type="text" id="marker_title" placeholder="Title">
+    <!--Add Map-->
+      <div class="con_Addmap">
+          <div class="creat_map_button">
+            <input type="submit" value="Create Map" id = "map_button">
+            <form action="db" method="post" id="addmap">
+            <input type="text" id="map_title" placeholder="Title">
             <div class="coordinates">
-            <input type="text" id="marker_lattitude" placeholder="lattitude" >
-            <input type="text" id="marker_longitude" placeholder ="longitude">
-            <div class="url">
-            <input type="text" id="marker_url" placeholder ="url">
+            <input type="text" id="map_lattitude" placeholder="lattitude" >
+            <input type="text" id="map_longitude" placeholder ="longitude">
             <div class="Description">
-            <input type="text" id="marker_description" placeholder="Description">
+            <input type="text" id="map_description" placeholder="Description">
             <div class="button">
-            <input type="submit" value="Add" id = "marker_button">
+            <input type="submit" value="Create" id = "create">
             </div>
           </div>
           </div>
@@ -83,7 +82,7 @@
         </form>
       </div>
 
-    <!-- Add Marker end-->
+    <!-- Add Map-->
 
       </div>
     </body>
