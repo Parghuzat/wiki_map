@@ -12,12 +12,11 @@ module.exports = (db) => {
   router.get("/", (req, res) => {
     db.query(`SELECT * FROM maps;`)
       .then(data => {
-        const templateVars = {};
+        const maps = {};
         for (const row of data.rows) {
-          templateVars[row.id] = row;
+          maps[row.id] = row;
         }
-        console.log('TemplateVars:', templateVars[2].title);
-        res.render('map', templateVars)
+        res.render('map', {maps})
       })
       .catch(err => {
         res
