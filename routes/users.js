@@ -10,10 +10,13 @@ const router  = express.Router();
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
-    db.query(`SELECT * FROM users;`)
+    db.query(`SELECT * FROM maps;`)
       .then(data => {
-        const users = data.rows;
-        res.json({ users });
+        const maps = {};
+        for (const row of data.rows) {
+          maps[row.id] = row;
+        }
+        res.render('map', {markers: [], map: {}, maps})
       })
       .catch(err => {
         res
