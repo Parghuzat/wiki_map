@@ -55,6 +55,8 @@ app.get("/", (req, res) => {
   res.render("map");
 });
 
+app.get()
+
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });
