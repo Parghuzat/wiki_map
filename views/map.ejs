@@ -21,11 +21,15 @@
       currentMap = JSON.parse(currentMap);
     </script>
     <script src="/scripts/map.js"></script>
-    <script
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyALTeWTvvDs3k_NqRCYuS6U33HxBD4IIuM&callback=initMap&v=weekly"
-    async
-    ></script>
+
     <script src="/scripts/app.js"></script>
+    <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyByNXPUlKpqtaXERvqo6fUBzbblOfDYx3A&libraries=places&callback=initMap" defer></script>
+
+
+
+
+
+
   </head>
 
     <body>
@@ -44,7 +48,7 @@
 
     <div class="search">
       <form id = "search" action="" method="post">
-        <input id= "search_inp" type = "text" placeholder= " Search for location " >
+        <input id= "autocomplete" class="search_inp"  type = "text" placeholder= " Search for location " >
         <button id="GoBtn">Go</button>
       </form>
     </div>
