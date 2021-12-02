@@ -35,4 +35,4 @@ INSERT INTO markers (title, lat, lng, description, image_url, map_id )
          ('4', 43.671572, -79.508564, 'Never been here.', null, 8),
          ('5', 43.678702, -79.372295, 'Never been here.', null, 8),
          ('6', 43.690259, -79.361513, 'Never been here.', null, 8),
-         ('7', 43.810584, -79.057287, 'Never been to Toronto.', null, 8),
+         ('7', 43.810584, -79.057287, 'Never been to Toronto.', null, 8);

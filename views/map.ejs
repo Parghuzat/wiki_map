@@ -13,11 +13,11 @@
       crossorigin="anonymous">
     </script>
     <script>
-      var markers = '<%- JSON.stringify(markers) %>';
+      var markers = atob('<%- new Buffer(JSON.stringify(markers)).toString("base64") %>');
       markers = JSON.parse(markers);
-      var maps = '<%- JSON.stringify(maps) %>';
+      var maps = atob('<%- new Buffer(JSON.stringify(maps)).toString("base64") %>');
       maps = JSON.parse(maps);
-      var currentMap = '<%- JSON.stringify(map) %>';
+      var currentMap = atob('<%- new Buffer(JSON.stringify(map)).toString("base64") %>');
       currentMap = JSON.parse(currentMap);
     </script>
     <script src="/scripts/map.js"></script>
@@ -63,7 +63,7 @@
       <tbody class="title_list">
         <tr>
         <td> <% for(let id in maps) { %>
-          <p><a href = '/map/:<%= maps[id] %>'> <%= maps[id].title %></a></p>
+          <p><a href = '/map/<%= user_id %>/<%= maps[id].id %>'> <%= maps[id].title %></a></p>
         <% } %>
       </td>
       </tr>
@@ -73,38 +73,44 @@
     <!--viewe map-->
 
     <div class = "con_map">
+      <h1> <%= map.title %> <h1>
       <div id="map">
-      <h1> MApp<h1>
 
       </div>
     </div>
 
     <!--Add Marker start-->
-      <div class="con_marker">
-        <div >
-          <h1>Add Marker</h1>
-          <form action="/map/<%= map.id %>" method="post" id="addmarker">
-            <input type="text" id="marker_title" name="title" placeholder="Title">
-            <div class="coordinates">
+    <div class="con_marker">
+      <div >
+        <h1>Add Marker</h1>
+        <form action="/map/<%= map.id %>" method="post" id="addmarker">
+          <input type="text" id="marker_title" name="title" placeholder="Title">
+          <div class="coordinates">
             <input type="text" id="marker_latitude" name="latitude" placeholder="latitude" value ="">
             <input type="text" id="marker_longitude" name="longitude" placeholder ="longitude" value ="">
             <div class="url">
-            <input type="text" id="marker_url" name="img_url" placeholder ="url">
-            <div class="Description">
-            <input type="text" id="marker_description" name="description" placeholder="Description">
-            <div class="button">
-            <input type="submit" value="Add" id= "marker_button">
+              <input type="text" id="marker_url" name="img_url" placeholder ="url">
+              <div class="Description">
+                <input type="text" id="marker_description" name="description" placeholder="Description">
+                <div class="button">
+                  <input type="submit" value="Add" id= "marker_button">
+                </div>
+              </div>
             </div>
           </div>
-          </div>
-          </div>
-          </div>
-        </form>
-      </div>
+        </div>
+      </form>
+    </div>
+    <div>
+      <form action="/map/<%= user_id %>/<%= map.id %>/delete" method="POST" id="delete_map">
+        <input type="hidden" name="_method" value="delete">
+        <button type="submit">DELETE MApp</button>
+      </form>
+    </div>
 
     <!-- Add Marker end-->
 
-      </div>
-    </body>
+  </div>
+</body>
   </div>
 </html>

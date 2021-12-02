@@ -1,8 +1,10 @@
-  function initMap() {
-    const map = new google.maps.Map(document.getElementById("map"), {
-      zoom: 12,
-      center: { lat: parseFloat(currentMap.center_lat),lng:  parseFloat(currentMap.center_lng) },
-    });
+function initMap() {
+       const map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 12,
+        center: window.currentMap ? { lat: parseFloat(currentMap.center_lat),lng:  parseFloat(currentMap.center_lng) } : { lat: 24.162776, lng: -77.583647 },
+      });
+
+
 
 
     function placeMarker(lat, lng, markerInfo) {
@@ -26,7 +28,7 @@
       });
 
     }
-    for (let marker of markers) {
+    for (let marker of window.markers || []) {
       placeMarker(parseFloat(marker.lat), parseFloat(marker.lng), marker);
     }
 
@@ -34,7 +36,7 @@
     map.addListener("click", (e) => {
       placeMarkerAndPanTo(e.latLng, map);
     });
-    
+
     let autocomplete;
     // function initAutocomplete() {
       autocomplete = new google.maps.places.Autocomplete (
@@ -43,8 +45,14 @@
           types: ['establishment'],
           componentRestrictions: {'country': ['CA', 'US']},
           fileds: ['place_id', 'geometry', 'name']
-  
+
         });
+      // const mapSearchBtn = getComputedStyle('GoBtn');
+      // const searchBox = new google.maps.places.SeachBox(input);
+      // map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+      // map.addListener('bounds_changed', () => {
+      //   searchBox.setBounds(map.getBounds());
+      // });
     // }
 }
 
@@ -60,5 +68,12 @@
     map.panTo(latLng);
     $('#marker_latitude').val(latLng.lat().toFixed(6));
     $('#marker_longitude').val(latLng.lng().toFixed(6));
+    $('#map_latitude').val(latLng.lat().toFixed(6));
+    $('#map_longitude').val(latLng.lng().toFixed(6));
   }
-
+$(document).ready(function() {
+  $('#addmap').hide()
+  $('#map_button').on('click', e => {
+    $('#addmap').slideDown(500);
+  })
+})
