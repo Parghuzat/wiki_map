@@ -4,6 +4,7 @@
       center: { lat: parseFloat(currentMap.center_lat),lng:  parseFloat(currentMap.center_lng) },
     });
 
+
     function placeMarker(lat, lng, markerInfo) {
       const marker = new google.maps.Marker({
         position: {lat, lng},
@@ -33,7 +34,19 @@
     map.addListener("click", (e) => {
       placeMarkerAndPanTo(e.latLng, map);
     });
-  }
+    
+    let autocomplete;
+    // function initAutocomplete() {
+      autocomplete = new google.maps.places.Autocomplete (
+        document.getElementById('autocomplete'),
+        {
+          types: ['establishment'],
+          componentRestrictions: {'country': ['CA', 'US']},
+          fileds: ['place_id', 'geometry', 'name']
+  
+        });
+    // }
+}
 
   function placeMarkerAndPanTo(latLng, map) {
     new google.maps.Marker({
@@ -48,3 +61,4 @@
     $('#marker_latitude').val(latLng.lat().toFixed(6));
     $('#marker_longitude').val(latLng.lng().toFixed(6));
   }
+

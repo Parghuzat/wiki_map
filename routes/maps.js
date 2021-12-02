@@ -16,7 +16,7 @@ const map = function(db) {
         const markers = data.rows;
         const maps = mapResults.rows;
         const map = currentMap.rows[0];
-        res.render('map', {markers, maps, map});
+        res.render('map', {markers: [],maps, map});
         // console.log('templateVars', maps);
       })
       .catch(err => {

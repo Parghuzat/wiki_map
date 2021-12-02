@@ -16,7 +16,7 @@ module.exports = (db) => {
         for (const row of data.rows) {
           maps[row.id] = row;
         }
-        res.render('map', {maps})
+        res.render('map', {markers: [], map: {}, maps})
       })
       .catch(err => {
         res
