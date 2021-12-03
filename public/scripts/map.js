@@ -53,8 +53,12 @@ const mapSearchBtn = getComputedStyle('GoBtn');
 const searchBox = new google.maps.places.SeachBox(input);
 map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
 
+map.addListener("bounds_changed", () => {
+  searchBox.setBounds(map.getBounds());
+});
+
+
    
-}
 
 function placeMarkerAndPanTo(latLng, map) {
   new google.maps.Marker({
