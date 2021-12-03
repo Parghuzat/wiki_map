@@ -45,3 +45,15 @@ body{
   width: 5%;
 }
 
+.map_delete{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+#delete_map_btn{
+  height: 50px;
+  width: 200px;
+}
+
+

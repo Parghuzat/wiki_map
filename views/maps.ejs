@@ -6,13 +6,20 @@
     <title> MApp</title>
     <link rel ="stylesheet" type="text/css" href ="style.css">
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-    <link rel="stylesheet" type="text/css" href="/styles/map_styles.css" />
-    <link rel="stylesheet" type="text/css" href="/styles/map_container.css" />
-    <script src="/scripts/map.js"></script>
+    <link rel="stylesheet" type="text/css" href="/styles/maps_styles.css" />
+    <link rel="stylesheet" type="text/css" href="/styles/maps_container.css" />
     <script
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyALTeWTvvDs3k_NqRCYuS6U33HxBD4IIuM&callback=initMap&v=weekly"
-    async
-  ></script>
+      src="https://code.jquery.com/jquery-3.6.0.js"
+      integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+      crossorigin="anonymous">
+    </script>
+    <script>
+      var maps = atob('<%- new Buffer(JSON.stringify(mapsList)).toString("base64") %>');
+      maps = JSON.parse(maps);
+    </script>
+    <script src="/scripts/map.js"></script>
+
+    <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyByNXPUlKpqtaXERvqo6fUBzbblOfDYx3A&libraries=places&callback=initMap" defer></script>
   </head>
 
     <body>
@@ -31,12 +38,14 @@
 
     <div class="search">
       <form id = "search" action="" method="post">
-        <input id= "search_inp" type = "text" placeholder= " Search for location " >
+        <input id= "autocomplete" class="search_inp"  type = "text" placeholder= " Search for location " >
         <button id="GoBtn">Go</button>
       </form>
     </div>
 
 <!-- search bar end-->
+
+<!--container begins-->
 
     <div class="container">
 
@@ -45,8 +54,8 @@
       <h1 id="usermaps">User Maps</h1>
       <tbody class="title_list">
         <tr>
-        <td> <% for(let id in templateVars) { %>
-          <p><a href = '/map/:<%=templateVars[id] %>'> <%= templateVars[id].title %></a></p>
+        <td> <% for(let map in mapsList) { %>
+          <p><a href = '/map/<%= user_id %>/<%= mapsList[map].id %>'> <%= mapsList[map].title %></a></p>
         <% } %>
       </td>
       </tr>
@@ -63,28 +72,33 @@
 
     <!--Add Map-->
       <div class="con_Addmap">
+        <h1>Create Map</h1>
           <div class="creat_map_button">
-            <input type="submit" value="Create Map" id = "map_button">
-            <form action="db" method="post" id="addmap">
-            <input type="text" id="map_title" placeholder="Title">
-            <div class="coordinates">
-            <input type="text" id="map_lattitude" placeholder="lattitude" >
-            <input type="text" id="map_longitude" placeholder ="longitude">
-            <div class="Description">
-            <input type="text" id="map_description" placeholder="Description">
-            <div class="button">
-            <input type="submit" value="Create" id = "create">
-            </div>
+            <input type="submit" value="Create Map" id="map_button">
+            <form action="/maps/<%= user_id %>" method="post" id="addmap">
+              <input type="text" id="map_title" name="title" placeholder="Title">
+              <div class="coordinates">
+                <input type="text" id="map_latitude" name="latitude" placeholder="latitude" >
+                <input type="text" id="map_longitude" name="longitude" placeholder ="longitude">
+              </div>
+              <div class="button">
+                <input type="submit" value="Create" id = "create">
+              </div>
+            </form>
           </div>
-          </div>
-          </div>
-          </div>
-        </form>
+        </div>
+
       </div>
 
     <!-- Add Map-->
 
       </div>
+      <script>
+        function myFunction(x) {
+          x.classList.toggle("far");
+          x.classList.toggle("fas");
+          return;
+        }
+      </script>
     </body>
-  </div>
 </html>
