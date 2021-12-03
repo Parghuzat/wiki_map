@@ -5,11 +5,11 @@ $(document).ready(function() {
     $(this).toggleClass("far");
     console.log($(this).siblings("a").text());
     if ($(this).hasClass("fas")) {
+      $(this).css('color', 'blue');
       alert(`${$(this).siblings("a").text()} added to favorites`);
     } else {
-      alert(`${$(this).siblings("a").text()} removed to favorites`);
+      alert(`${$(this).siblings("a").text()} removed from favorites`);
     }
-
 
   });
 });
