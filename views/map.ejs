@@ -52,6 +52,7 @@
 
 <!-- search bar end-->
 
+<!--container begins-->
     <div class="container">
 
     <!-- Add List-->
@@ -69,11 +70,14 @@
     <!--viewe map-->
 
     <div class = "con_map">
+      <div id="maptitle">
       <h1> <%= map.title %> <h1>
+      </div>
       <div id="map">
-
       </div>
     </div>
+
+    <!--view map ends-->
 
     <!--Add Marker start-->
     <div class="con_marker">
@@ -97,14 +101,20 @@
         </div>
       </form>
     </div>
-    <div>
-      <form action="/map/<%= user_id %>/<%= map.id %>/delete" method="POST" id="delete_map">
-        <input type="hidden" name="_method" value="delete">
-        <button type="submit">DELETE MApp</button>
-      </form>
-    </div>
-
     <!-- Add Marker end-->
+  </div>
+  <!--container ends-->
+
+      <!-- Map Delete start-->
+      <div class="map_delete">
+        <form action="/map/<%= user_id %>/<%= map.id %>/delete" method="POST" id="delete_map">
+          <input type="hidden" name="_method" value="delete">
+          <button id="delete_map_btn" type="submit">DELETE MApp</button>
+        </form>
+      </div>
+      <!--Map Delete end-->
+
+
 
   </div>
 </body>

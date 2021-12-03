@@ -6,8 +6,8 @@
     <title> MApp</title>
     <link rel ="stylesheet" type="text/css" href ="style.css">
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-    <link rel="stylesheet" type="text/css" href="/styles/map_styles.css" />
-    <link rel="stylesheet" type="text/css" href="/styles/map_container.css" />
+    <link rel="stylesheet" type="text/css" href="/styles/maps_styles.css" />
+    <link rel="stylesheet" type="text/css" href="/styles/maps_container.css" />
     <script
       src="https://code.jquery.com/jquery-3.6.0.js"
       integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
@@ -38,12 +38,14 @@
 
     <div class="search">
       <form id = "search" action="" method="post">
-        <input id= "search_inp" type = "text" placeholder= " Search for location " >
+        <input id= "autocomplete" class="search_inp"  type = "text" placeholder= " Search for location " >
         <button id="GoBtn">Go</button>
       </form>
     </div>
 
 <!-- search bar end-->
+
+<!--container begins-->
 
     <div class="container">
 
@@ -70,6 +72,7 @@
 
     <!--Add Map-->
       <div class="con_Addmap">
+        <h1>Create Map</h1>
           <div class="creat_map_button">
             <input type="submit" value="Create Map" id="map_button">
             <form action="/maps/<%= user_id %>" method="post" id="addmap">
