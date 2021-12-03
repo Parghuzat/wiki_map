@@ -60,7 +60,7 @@
       <tbody class="title_list">
         <tr>
          <% for(let id in maps) { %>
-          <td><p><a href = '/map/:<%= maps[id] %>'> <%= maps[id].title %></a> <i class=" heart far fa-heart"></i></p></td>
+          <td><p><a href = '/map/<%= user_id %>/:<%= maps[id] %>'> <%= maps[id].title %></a> <i class=" heart far fa-heart"></i></p></td>
         <% } %>
       </tr>
       </tbody>
