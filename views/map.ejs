@@ -7,11 +7,13 @@
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
     <link rel="stylesheet" type="text/css" href="/styles/map_styles.css" />
     <link rel="stylesheet" type="text/css" href="/styles/map_container.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script
       src="https://code.jquery.com/jquery-3.6.0.js"
       integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
       crossorigin="anonymous">
     </script>
+
     <script>
       var markers = atob('<%- new Buffer(JSON.stringify(markers)).toString("base64") %>');
       markers = JSON.parse(markers);
@@ -21,14 +23,9 @@
       currentMap = JSON.parse(currentMap);
     </script>
     <script src="/scripts/map.js"></script>
-
     <script src="/scripts/app.js"></script>
+    <script src="/scripts/fav.js"></script>
     <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyByNXPUlKpqtaXERvqo6fUBzbblOfDYx3A&libraries=places&callback=initMap" defer></script>
-
-
-
-
-
 
   </head>
 
@@ -47,14 +44,14 @@
 <!-- search bar start -->
 
     <div class="search">
-      <form id = "search" action="" method="post">
-        <input id= "autocomplete" class="search_inp"  type = "text" placeholder= " Search for location " >
-        <button id="GoBtn">Go</button>
-      </form>
+      <div id='search'>
+        <input id="autocomplete" class="search_inp"  type ="text" placeholder="Search for location" >
+      </div>
     </div>
 
 <!-- search bar end-->
 
+<!--container begins-->
     <div class="container">
 
     <!-- Add List-->
@@ -62,10 +59,9 @@
       <h1 id="usermaps">User Maps</h1>
       <tbody class="title_list">
         <tr>
-        <td> <% for(let id in maps) { %>
-          <p><a href = '/map/<%= user_id %>/<%= maps[id].id %>'> <%= maps[id].title %></a></p>
+         <% for(let id in maps) { %>
+          <td><p><a href = '/map/<%= user_id %>/<%= maps[id].id %>'> <%= maps[id].title %></a> <i class=" heart far fa-heart"></i></p></td>
         <% } %>
-      </td>
       </tr>
       </tbody>
     </div>
@@ -73,11 +69,14 @@
     <!--viewe map-->
 
     <div class = "con_map">
+      <div id="maptitle">
       <h1> <%= map.title %> <h1>
+      </div>
       <div id="map">
-
       </div>
     </div>
+
+    <!--view map ends-->
 
     <!--Add Marker start-->
     <div class="con_marker">
@@ -101,14 +100,20 @@
         </div>
       </form>
     </div>
-    <div>
-      <form action="/map/<%= user_id %>/<%= map.id %>/delete" method="POST" id="delete_map">
-        <input type="hidden" name="_method" value="delete">
-        <button type="submit">DELETE MApp</button>
-      </form>
-    </div>
-
     <!-- Add Marker end-->
+  </div>
+  <!--container ends-->
+
+      <!-- Map Delete start-->
+      <div class="map_delete">
+        <form action="/map/<%= user_id %>/<%= map.id %>/delete" method="POST" id="delete_map">
+          <input type="hidden" name="_method" value="delete">
+          <button id="delete_map_btn" type="submit">DELETE MApp</button>
+        </form>
+      </div>
+      <!--Map Delete end-->
+
+
 
   </div>
 </body>

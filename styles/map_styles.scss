@@ -36,12 +36,25 @@ body{
 }
 
 .search_inp{
-  height: 100%;
-  width: 60%;
+  background-color: #fff;
+  font-size: 15px;
+  font-weight: 300;
+  margin-left: 12px;
+  padding: 0 11px 0 13px;
+  text-overflow: ellipsis;
+  width: 400px;
 }
 
-#GoBtn{
-  height: 100%;
-  width: 5%;
+
+.map_delete{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
+
+#delete_map_btn{
+  height: 50px;
+  width: 200px;
+}
+
 
