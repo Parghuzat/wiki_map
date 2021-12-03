@@ -23,6 +23,7 @@
       currentMap = JSON.parse(currentMap);
     </script>
     <script src="/scripts/map.js"></script>
+    <script src="/scripts/fav.js"></script>
     <script
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyALTeWTvvDs3k_NqRCYuS6U33HxBD4IIuM&callback=initMap&v=weekly"
     async
@@ -61,7 +62,7 @@
       <tbody class="title_list">
         <tr>
          <% for(let id in maps) { %>
-          <td><p><a href = '/map/:<%= maps[id] %>'> <%= maps[id].title %></a> <i onclick="myFunction(this)" class="far fa-heart"></i> </td></p>
+          <td><p><a href = '/map/:<%= maps[id] %>'> <%= maps[id].title %></a> <i class=" heart far fa-heart"></i></p></td>
         <% } %>
       </tr>
       </tbody>
@@ -102,12 +103,6 @@
     <!-- Add Marker end-->
 
       </div>
-      <script>
-        function myFunction(x) {
-          x.classList.toggle("far");
-          x.classList.toggle("fas");
-        }
-      </script>
     </body>
   </div>
 </html>
